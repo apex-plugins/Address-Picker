@@ -1,0 +1,52 @@
+/*
+ * 0integration location Picker for APEX
+ * Plug-in Type: Item
+ * Summary: Google map address picker and autocomplete plugin
+ *
+ * ^^^ Contact information ^^^
+ * Developed by 0integration
+ * http://www.zerointegration.com
+ * apex@zerointegration.com
+ *
+ * ^^^ License ^^^
+ * Licensed Under: GNU General Public License, version 3 (GPL-3.0) -
+http://www.opensource.org/licenses/gpl-3.0.html
+ *
+ * @author Kartik Patel - www.zerointegration.com
+ */
+ 
+ #pac-input-map {
+  background-color: #fff;
+  font-family: Roboto;
+  font-size: 15px;
+  font-weight: 300;
+  margin-left: 12px;
+  padding: 0 11px 0 13px;
+  text-overflow: ellipsis;
+  width: 400px;
+  height: 40px;
+}
+
+#pac-input-map:focus {
+  border-color: #4d90fe;
+}
+
+input#pac-input-map.controls {
+  top: 10px !important;
+  left: 177px !important
+}
+
+#pac-input {
+  background-color: #fff;
+  font-family: Roboto;
+  font-size: 15px;
+  font-weight: 300;
+  padding: 0 11px 0 13px;
+  text-overflow: ellipsis;
+  width: 500px;
+  height: 40px;
+}
+
+#pac-input:focus {
+  border-color: #4d90fe;
+}
