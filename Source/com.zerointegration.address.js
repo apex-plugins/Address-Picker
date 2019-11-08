@@ -1,7 +1,7 @@
-/**
- * 0integration location Picker for APEX
+/*
+ * 0integration Address Picker
  * Plug-in Type: Item
- * Summary: Google map address picker and autocomplete plugin.
+ * Summary: Google map address picker and autocomplete plugin
  *
  * ^^^ Contact information ^^^
  * Developed by 0integration

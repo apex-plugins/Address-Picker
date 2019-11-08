@@ -15,16 +15,16 @@ begin
 wwv_flow_api.import_begin (
  p_version_yyyy_mm_dd=>'2019.03.31'
 ,p_release=>'19.1.0.00.15'
-,p_default_workspace_id=>20000002
-,p_default_application_id=>105
-,p_default_owner=>'ZI'
+,p_default_workspace_id=>59964498029690491
+,p_default_application_id=>711
+,p_default_owner=>'ZI_DEMO'
 );
 end;
 /
 prompt --application/shared_components/plugins/item_type/com_zerointegration_addresspicker
 begin
 wwv_flow_api.create_plugin(
- p_id=>wwv_flow_api.id(3571299823014728)
+ p_id=>wwv_flow_api.id(63537924385760311)
 ,p_plugin_type=>'ITEM TYPE'
 ,p_name=>'COM.ZEROINTEGRATION.ADDRESSPICKER'
 ,p_display_name=>'0integration Address Picker'
@@ -46,6 +46,7 @@ wwv_flow_api.create_plugin(
 '    V_POSITION VARCHAR2(10);',
 '    V_C_LATITUDE NUMBER;',
 '    V_C_LONGITUDE NUMBER;',
+'    V_DYNAMIC_WIDTH VARCHAR2(10);',
 '    V_API_KEY P_ITEM.ATTRIBUTE_01%TYPE;',
 '    l_name VARCHAR2(30);',
 '  BEGIN',
@@ -69,6 +70,7 @@ wwv_flow_api.create_plugin(
 '    V_POSITION := P_ITEM.ATTRIBUTE_06;',
 '    V_C_LATITUDE := NVL(P_ITEM.ATTRIBUTE_07,0);',
 '    V_C_LONGITUDE := NVL(P_ITEM.ATTRIBUTE_08,0);',
+'    V_DYNAMIC_WIDTH := NVL(P_ITEM.ATTRIBUTE_08,0);',
 '    ',
 '    APEX_JAVASCRIPT.ADD_LIBRARY(P_NAME => ''//maps.googleapis.com/maps/api/js?region=''||V_COUNTRY||''&libraries=places&key='' || V_API_KEY,',
 '                                P_DIRECTORY => NULL,P_VERSION => NULL,P_SKIP_EXTENSION => TRUE);',
@@ -85,8 +87,7 @@ wwv_flow_api.create_plugin(
 '      ',
 '      sys.htp.p(''<input id="pac-input-map" class="controls" type="text" placeholder="''||P_ITEM.PLACEHOLDER||''">'');',
 '      sys.htp.p(''<div id="map-canvas" style="width:''',
-'                       || V_MAP_WIDTH',
-'                       || ''px; height:''',
+'                       || CASE WHEN V_DYNAMIC_WIDTH=''Y'' THEN ''100%;'' ELSE V_MAP_WIDTH|| ''px;'' END ||'' height:''',
 '                       || V_MAP_HEIGHT',
 '                       || ''px;"> </div>'');',
 '    ',
@@ -118,8 +119,8 @@ wwv_flow_api.create_plugin(
 ,p_files_version=>6
 );
 wwv_flow_api.create_plugin_attribute(
- p_id=>wwv_flow_api.id(3571891294419135)
-,p_plugin_id=>wwv_flow_api.id(3571299823014728)
+ p_id=>wwv_flow_api.id(63538515857164718)
+,p_plugin_id=>wwv_flow_api.id(63537924385760311)
 ,p_attribute_scope=>'APPLICATION'
 ,p_attribute_sequence=>1
 ,p_display_sequence=>10
@@ -127,15 +128,14 @@ wwv_flow_api.create_plugin_attribute(
 ,p_attribute_type=>'TEXT'
 ,p_is_required=>true
 ,p_is_translatable=>false
-,p_examples=>'AIzaSyCqv-cfHxu4zt88ynJQTD2a_u1nClVEpdk'
 ,p_help_text=>wwv_flow_string.join(wwv_flow_t_varchar2(
 'To use the Maps JavaScript API you must have an API key. The API key is a unique identifier that is used to authenticate requests associated with your project for usage and billing purposes.',
 '',
 'https://developers.google.com/maps/documentation/javascript/get-api-key'))
 );
 wwv_flow_api.create_plugin_attribute(
- p_id=>wwv_flow_api.id(7740584086159298)
-,p_plugin_id=>wwv_flow_api.id(3571299823014728)
+ p_id=>wwv_flow_api.id(67707208648904881)
+,p_plugin_id=>wwv_flow_api.id(63537924385760311)
 ,p_attribute_scope=>'COMPONENT'
 ,p_attribute_sequence=>1
 ,p_display_sequence=>10
@@ -147,8 +147,8 @@ wwv_flow_api.create_plugin_attribute(
 ,p_help_text=>'Specify country code in lowercase.'
 );
 wwv_flow_api.create_plugin_attribute(
- p_id=>wwv_flow_api.id(7741072551161806)
-,p_plugin_id=>wwv_flow_api.id(3571299823014728)
+ p_id=>wwv_flow_api.id(67707697113907389)
+,p_plugin_id=>wwv_flow_api.id(63537924385760311)
 ,p_attribute_scope=>'COMPONENT'
 ,p_attribute_sequence=>2
 ,p_display_sequence=>20
@@ -160,51 +160,51 @@ wwv_flow_api.create_plugin_attribute(
 ,p_help_text=>'Display google map to select location.'
 );
 wwv_flow_api.create_plugin_attribute(
- p_id=>wwv_flow_api.id(7741507487167210)
-,p_plugin_id=>wwv_flow_api.id(3571299823014728)
+ p_id=>wwv_flow_api.id(67708132049912793)
+,p_plugin_id=>wwv_flow_api.id(63537924385760311)
 ,p_attribute_scope=>'COMPONENT'
 ,p_attribute_sequence=>3
-,p_display_sequence=>30
+,p_display_sequence=>40
 ,p_prompt=>'Width'
 ,p_attribute_type=>'NUMBER'
 ,p_is_required=>true
 ,p_unit=>'px'
 ,p_is_translatable=>false
-,p_depending_on_attribute_id=>wwv_flow_api.id(7741072551161806)
+,p_depending_on_attribute_id=>wwv_flow_api.id(60010389435204723)
 ,p_depending_on_has_to_exist=>true
 ,p_depending_on_condition_type=>'EQUALS'
 ,p_depending_on_expression=>'Y'
 ,p_help_text=>'Specify Google Map width in pixel.'
 );
 wwv_flow_api.create_plugin_attribute(
- p_id=>wwv_flow_api.id(7742056836170265)
-,p_plugin_id=>wwv_flow_api.id(3571299823014728)
+ p_id=>wwv_flow_api.id(67708681398915848)
+,p_plugin_id=>wwv_flow_api.id(63537924385760311)
 ,p_attribute_scope=>'COMPONENT'
 ,p_attribute_sequence=>4
-,p_display_sequence=>40
+,p_display_sequence=>50
 ,p_prompt=>'Height'
 ,p_attribute_type=>'NUMBER'
 ,p_is_required=>true
 ,p_unit=>'px'
 ,p_is_translatable=>false
-,p_depending_on_attribute_id=>wwv_flow_api.id(7741072551161806)
+,p_depending_on_attribute_id=>wwv_flow_api.id(67707697113907389)
 ,p_depending_on_has_to_exist=>true
 ,p_depending_on_condition_type=>'EQUALS'
 ,p_depending_on_expression=>'Y'
 ,p_help_text=>'Specify Google Map height in pixel.'
 );
 wwv_flow_api.create_plugin_attribute(
- p_id=>wwv_flow_api.id(7742545306173300)
-,p_plugin_id=>wwv_flow_api.id(3571299823014728)
+ p_id=>wwv_flow_api.id(67709169868918883)
+,p_plugin_id=>wwv_flow_api.id(63537924385760311)
 ,p_attribute_scope=>'COMPONENT'
 ,p_attribute_sequence=>5
-,p_display_sequence=>50
+,p_display_sequence=>60
 ,p_prompt=>'Default zoom level'
 ,p_attribute_type=>'SELECT LIST'
 ,p_is_required=>true
 ,p_default_value=>'10'
 ,p_is_translatable=>false
-,p_depending_on_attribute_id=>wwv_flow_api.id(7741072551161806)
+,p_depending_on_attribute_id=>wwv_flow_api.id(67707697113907389)
 ,p_depending_on_has_to_exist=>true
 ,p_depending_on_condition_type=>'EQUALS'
 ,p_depending_on_expression=>'Y'
@@ -212,200 +212,217 @@ wwv_flow_api.create_plugin_attribute(
 ,p_help_text=>'Select Google map zoom level.'
 );
 wwv_flow_api.create_plugin_attr_value(
- p_id=>wwv_flow_api.id(7750807219343823)
-,p_plugin_attribute_id=>wwv_flow_api.id(7742545306173300)
+ p_id=>wwv_flow_api.id(67717431782089406)
+,p_plugin_attribute_id=>wwv_flow_api.id(67709169868918883)
 ,p_display_sequence=>10
 ,p_display_value=>'0'
 ,p_return_value=>'0'
 );
 wwv_flow_api.create_plugin_attr_value(
- p_id=>wwv_flow_api.id(7751222089345039)
-,p_plugin_attribute_id=>wwv_flow_api.id(7742545306173300)
+ p_id=>wwv_flow_api.id(67717846652090622)
+,p_plugin_attribute_id=>wwv_flow_api.id(67709169868918883)
 ,p_display_sequence=>20
 ,p_display_value=>'1'
 ,p_return_value=>'1'
 );
 wwv_flow_api.create_plugin_attr_value(
- p_id=>wwv_flow_api.id(7751676403345933)
-,p_plugin_attribute_id=>wwv_flow_api.id(7742545306173300)
+ p_id=>wwv_flow_api.id(67718300966091516)
+,p_plugin_attribute_id=>wwv_flow_api.id(67709169868918883)
 ,p_display_sequence=>30
 ,p_display_value=>'2'
 ,p_return_value=>'2'
 );
 wwv_flow_api.create_plugin_attr_value(
- p_id=>wwv_flow_api.id(7752029610346660)
-,p_plugin_attribute_id=>wwv_flow_api.id(7742545306173300)
+ p_id=>wwv_flow_api.id(67718654173092243)
+,p_plugin_attribute_id=>wwv_flow_api.id(67709169868918883)
 ,p_display_sequence=>40
 ,p_display_value=>'3'
 ,p_return_value=>'3'
 );
 wwv_flow_api.create_plugin_attr_value(
- p_id=>wwv_flow_api.id(7752428566347410)
-,p_plugin_attribute_id=>wwv_flow_api.id(7742545306173300)
+ p_id=>wwv_flow_api.id(67719053129092993)
+,p_plugin_attribute_id=>wwv_flow_api.id(67709169868918883)
 ,p_display_sequence=>50
 ,p_display_value=>'4'
 ,p_return_value=>'4'
 );
 wwv_flow_api.create_plugin_attr_value(
- p_id=>wwv_flow_api.id(7752820747347955)
-,p_plugin_attribute_id=>wwv_flow_api.id(7742545306173300)
+ p_id=>wwv_flow_api.id(67719445310093538)
+,p_plugin_attribute_id=>wwv_flow_api.id(67709169868918883)
 ,p_display_sequence=>60
 ,p_display_value=>'5'
 ,p_return_value=>'5'
 );
 wwv_flow_api.create_plugin_attr_value(
- p_id=>wwv_flow_api.id(7753293157349337)
-,p_plugin_attribute_id=>wwv_flow_api.id(7742545306173300)
+ p_id=>wwv_flow_api.id(67719917720094920)
+,p_plugin_attribute_id=>wwv_flow_api.id(67709169868918883)
 ,p_display_sequence=>70
 ,p_display_value=>'6'
 ,p_return_value=>'6'
 );
 wwv_flow_api.create_plugin_attr_value(
- p_id=>wwv_flow_api.id(7753671051351899)
-,p_plugin_attribute_id=>wwv_flow_api.id(7742545306173300)
+ p_id=>wwv_flow_api.id(67720295614097482)
+,p_plugin_attribute_id=>wwv_flow_api.id(67709169868918883)
 ,p_display_sequence=>80
 ,p_display_value=>'7'
 ,p_return_value=>'7'
 );
 wwv_flow_api.create_plugin_attr_value(
- p_id=>wwv_flow_api.id(7754033660352649)
-,p_plugin_attribute_id=>wwv_flow_api.id(7742545306173300)
+ p_id=>wwv_flow_api.id(67720658223098232)
+,p_plugin_attribute_id=>wwv_flow_api.id(67709169868918883)
 ,p_display_sequence=>90
 ,p_display_value=>'8'
 ,p_return_value=>'8'
 );
 wwv_flow_api.create_plugin_attr_value(
- p_id=>wwv_flow_api.id(7754458685353291)
-,p_plugin_attribute_id=>wwv_flow_api.id(7742545306173300)
+ p_id=>wwv_flow_api.id(67721083248098874)
+,p_plugin_attribute_id=>wwv_flow_api.id(67709169868918883)
 ,p_display_sequence=>100
 ,p_display_value=>'9'
 ,p_return_value=>'9'
 );
 wwv_flow_api.create_plugin_attr_value(
- p_id=>wwv_flow_api.id(7743099954174535)
-,p_plugin_attribute_id=>wwv_flow_api.id(7742545306173300)
+ p_id=>wwv_flow_api.id(67709724516920118)
+,p_plugin_attribute_id=>wwv_flow_api.id(67709169868918883)
 ,p_display_sequence=>110
 ,p_display_value=>'10'
 ,p_return_value=>'10'
 );
 wwv_flow_api.create_plugin_attr_value(
- p_id=>wwv_flow_api.id(7755975739359351)
-,p_plugin_attribute_id=>wwv_flow_api.id(7742545306173300)
+ p_id=>wwv_flow_api.id(67722600302104934)
+,p_plugin_attribute_id=>wwv_flow_api.id(67709169868918883)
 ,p_display_sequence=>120
 ,p_display_value=>'11'
 ,p_return_value=>'11'
 );
 wwv_flow_api.create_plugin_attr_value(
- p_id=>wwv_flow_api.id(7756378144360149)
-,p_plugin_attribute_id=>wwv_flow_api.id(7742545306173300)
+ p_id=>wwv_flow_api.id(67723002707105732)
+,p_plugin_attribute_id=>wwv_flow_api.id(67709169868918883)
 ,p_display_sequence=>130
 ,p_display_value=>'12'
 ,p_return_value=>'12'
 );
 wwv_flow_api.create_plugin_attr_value(
- p_id=>wwv_flow_api.id(7756719856360765)
-,p_plugin_attribute_id=>wwv_flow_api.id(7742545306173300)
+ p_id=>wwv_flow_api.id(67723344419106348)
+,p_plugin_attribute_id=>wwv_flow_api.id(67709169868918883)
 ,p_display_sequence=>140
 ,p_display_value=>'13'
 ,p_return_value=>'13'
 );
 wwv_flow_api.create_plugin_attr_value(
- p_id=>wwv_flow_api.id(7757180118361611)
-,p_plugin_attribute_id=>wwv_flow_api.id(7742545306173300)
+ p_id=>wwv_flow_api.id(67723804681107194)
+,p_plugin_attribute_id=>wwv_flow_api.id(67709169868918883)
 ,p_display_sequence=>150
 ,p_display_value=>'14'
 ,p_return_value=>'14'
 );
 wwv_flow_api.create_plugin_attr_value(
- p_id=>wwv_flow_api.id(7757586942362570)
-,p_plugin_attribute_id=>wwv_flow_api.id(7742545306173300)
+ p_id=>wwv_flow_api.id(67724211505108153)
+,p_plugin_attribute_id=>wwv_flow_api.id(67709169868918883)
 ,p_display_sequence=>160
 ,p_display_value=>'15'
 ,p_return_value=>'15'
 );
 wwv_flow_api.create_plugin_attr_value(
- p_id=>wwv_flow_api.id(7757963564363183)
-,p_plugin_attribute_id=>wwv_flow_api.id(7742545306173300)
+ p_id=>wwv_flow_api.id(67724588127108766)
+,p_plugin_attribute_id=>wwv_flow_api.id(67709169868918883)
 ,p_display_sequence=>170
 ,p_display_value=>'16'
 ,p_return_value=>'16'
 );
 wwv_flow_api.create_plugin_attr_value(
- p_id=>wwv_flow_api.id(7758340839364958)
-,p_plugin_attribute_id=>wwv_flow_api.id(7742545306173300)
+ p_id=>wwv_flow_api.id(67724965402110541)
+,p_plugin_attribute_id=>wwv_flow_api.id(67709169868918883)
 ,p_display_sequence=>180
 ,p_display_value=>'17'
 ,p_return_value=>'17'
 );
 wwv_flow_api.create_plugin_attr_value(
- p_id=>wwv_flow_api.id(7758758265365514)
-,p_plugin_attribute_id=>wwv_flow_api.id(7742545306173300)
+ p_id=>wwv_flow_api.id(67725382828111097)
+,p_plugin_attribute_id=>wwv_flow_api.id(67709169868918883)
 ,p_display_sequence=>190
 ,p_display_value=>'18'
 ,p_return_value=>'18'
 );
 wwv_flow_api.create_plugin_attr_value(
- p_id=>wwv_flow_api.id(7759149863367471)
-,p_plugin_attribute_id=>wwv_flow_api.id(7742545306173300)
+ p_id=>wwv_flow_api.id(67725774426113054)
+,p_plugin_attribute_id=>wwv_flow_api.id(67709169868918883)
 ,p_display_sequence=>200
 ,p_display_value=>'19'
 ,p_return_value=>'19'
 );
 wwv_flow_api.create_plugin_attr_value(
- p_id=>wwv_flow_api.id(7759543983369534)
-,p_plugin_attribute_id=>wwv_flow_api.id(7742545306173300)
+ p_id=>wwv_flow_api.id(67726168546115117)
+,p_plugin_attribute_id=>wwv_flow_api.id(67709169868918883)
 ,p_display_sequence=>210
 ,p_display_value=>'20'
 ,p_return_value=>'20'
 );
 wwv_flow_api.create_plugin_attribute(
- p_id=>wwv_flow_api.id(7743519536181466)
-,p_plugin_id=>wwv_flow_api.id(3571299823014728)
+ p_id=>wwv_flow_api.id(67710144098927049)
+,p_plugin_id=>wwv_flow_api.id(63537924385760311)
 ,p_attribute_scope=>'COMPONENT'
 ,p_attribute_sequence=>6
-,p_display_sequence=>60
+,p_display_sequence=>70
 ,p_prompt=>'Device position'
 ,p_attribute_type=>'CHECKBOX'
 ,p_is_required=>false
 ,p_default_value=>'N'
 ,p_is_translatable=>false
-,p_depending_on_attribute_id=>wwv_flow_api.id(7741072551161806)
+,p_depending_on_attribute_id=>wwv_flow_api.id(67707697113907389)
 ,p_depending_on_has_to_exist=>true
 ,p_depending_on_condition_type=>'EQUALS'
 ,p_depending_on_expression=>'Y'
 ,p_help_text=>'Determine the user''s location.'
 );
 wwv_flow_api.create_plugin_attribute(
- p_id=>wwv_flow_api.id(7744084545189281)
-,p_plugin_id=>wwv_flow_api.id(3571299823014728)
+ p_id=>wwv_flow_api.id(67710709107934864)
+,p_plugin_id=>wwv_flow_api.id(63537924385760311)
 ,p_attribute_scope=>'COMPONENT'
 ,p_attribute_sequence=>7
-,p_display_sequence=>70
+,p_display_sequence=>80
 ,p_prompt=>'Center latitude'
 ,p_attribute_type=>'NUMBER'
 ,p_is_required=>true
 ,p_is_translatable=>false
-,p_depending_on_attribute_id=>wwv_flow_api.id(7743519536181466)
+,p_depending_on_attribute_id=>wwv_flow_api.id(67710144098927049)
 ,p_depending_on_has_to_exist=>true
 ,p_depending_on_condition_type=>'EQUALS'
 ,p_depending_on_expression=>'N'
 ,p_help_text=>'Latitude value for center of map.'
 );
 wwv_flow_api.create_plugin_attribute(
- p_id=>wwv_flow_api.id(7744551297192250)
-,p_plugin_id=>wwv_flow_api.id(3571299823014728)
+ p_id=>wwv_flow_api.id(67711175859937833)
+,p_plugin_id=>wwv_flow_api.id(63537924385760311)
 ,p_attribute_scope=>'COMPONENT'
 ,p_attribute_sequence=>8
-,p_display_sequence=>80
+,p_display_sequence=>90
 ,p_prompt=>'Center longitude'
 ,p_attribute_type=>'NUMBER'
 ,p_is_required=>true
 ,p_is_translatable=>false
-,p_depending_on_attribute_id=>wwv_flow_api.id(7743519536181466)
+,p_depending_on_attribute_id=>wwv_flow_api.id(67710144098927049)
 ,p_depending_on_has_to_exist=>true
 ,p_depending_on_condition_type=>'EQUALS'
 ,p_depending_on_expression=>'N'
 ,p_help_text=>'Longitude value for center of map.'
+);
+wwv_flow_api.create_plugin_attribute(
+ p_id=>wwv_flow_api.id(60010389435204723)
+,p_plugin_id=>wwv_flow_api.id(63537924385760311)
+,p_attribute_scope=>'COMPONENT'
+,p_attribute_sequence=>9
+,p_display_sequence=>30
+,p_prompt=>'Dynamic width'
+,p_attribute_type=>'CHECKBOX'
+,p_is_required=>false
+,p_default_value=>'Y'
+,p_is_translatable=>false
+,p_depending_on_attribute_id=>wwv_flow_api.id(67707697113907389)
+,p_depending_on_has_to_exist=>true
+,p_depending_on_condition_type=>'EQUALS'
+,p_depending_on_expression=>'Y'
+,p_help_text=>'Specify yes if width of map set to dynamic based on browser width or no for static width.'
 );
 end;
 /
@@ -427,8 +444,8 @@ end;
 /
 begin
 wwv_flow_api.create_plugin_file(
- p_id=>wwv_flow_api.id(59950017484047808)
-,p_plugin_id=>wwv_flow_api.id(3571299823014728)
+ p_id=>wwv_flow_api.id(119916642046793391)
+,p_plugin_id=>wwv_flow_api.id(63537924385760311)
 ,p_file_name=>'com.zerointegration.address.css'
 ,p_mime_type=>'text/css'
 ,p_file_charset=>'utf-8'
@@ -489,8 +506,8 @@ end;
 /
 begin
 wwv_flow_api.create_plugin_file(
- p_id=>wwv_flow_api.id(59950341211047810)
-,p_plugin_id=>wwv_flow_api.id(3571299823014728)
+ p_id=>wwv_flow_api.id(119916965773793393)
+,p_plugin_id=>wwv_flow_api.id(63537924385760311)
 ,p_file_name=>'com.zerointegration.address.js'
 ,p_mime_type=>'application/javascript'
 ,p_file_charset=>'utf-8'

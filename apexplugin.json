@@ -1,8 +1,8 @@
 {
   "name" : "0integration Address Picker",
   "version" : "1.0",
-  "description" : "It´s useful to guide your users through the application, or give your users a first run wizard to explain parts of your app.",
-  "keywords" : ["address", "googlemap", "autocomplete", "addresspicker"],
+  "description" : "Google map address picker and autocomplete item plugin used to easily select address.",
+  "keywords" : ["map","address", "googlemap", "autocomplete", "addresspicker","location"],
   "homepage" : "https://github.com/apex-plugins/Address-Picker",
   "bugs" : {
     "url" : "https://github.com/apex-plugins/Address-Picker/issues",
@@ -21,14 +21,14 @@
     "url" : "https://github.com/apex-plugins/Address-Picker.git"
   },
   "oracle" : {
-    "versions" : ["11.2.0.1", "12.1.0.1"],
+    "versions" : ["12.1.0.1"],
     "apex" : {
       "versions" : ["19.1"],
       "plugin" : {
         "internalName" : "COM.ZEROINTEGRATION.ADDRESSPICKER",
         "type" : "item",
-        "demo" : "https://fusion.work/demo/f?p=105:3",
-        "previewImage" : "https://raw.githubusercontent.com/Dani3lSun/apex-plugin-guidedtour/master/preview.png"
+        "demo" : "https://apps.zerointegration.com/demo/f?p=plugins:addresspicker",
+        "previewImage" : "https://raw.githubusercontent.com/Dani3lSun/apex-plugin-guidedtour/master/preview.gif"
       }
     }
   }
