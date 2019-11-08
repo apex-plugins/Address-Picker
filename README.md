@@ -6,7 +6,7 @@ Google map address picker and autocomplete item plugin used to easily select add
 
 This allows you to select address from Google Map. This plugin will used to select address from map or seach address using autocomplete functionality. 
 
-![plugin-heatmap-preview.png](https://raw.githubusercontent.com/jeffreykemp/jk64-plugin-heatmap/master/src/plugin-heatmap-preview.png)
+![Preview.gif](https://raw.githubusercontent.com/apex-plugins/Address-Picker/master/Source/Preview.gif)
 
 ## DEMO ##
 

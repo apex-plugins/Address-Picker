@@ -28,7 +28,7 @@
         "internalName" : "COM.ZEROINTEGRATION.ADDRESSPICKER",
         "type" : "item",
         "demo" : "https://apps.zerointegration.com/demo/f?p=plugins:addresspicker",
-        "previewImage" : "https://raw.githubusercontent.com/Dani3lSun/apex-plugin-guidedtour/master/preview.gif"
+        "previewImage" : "https://raw.githubusercontent.com/apex-plugins/Address-Picker/master/Source/Preview.gif"
       }
     }
   }
