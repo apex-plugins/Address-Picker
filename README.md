@@ -1,37 +1,26 @@
-# Address-Picker (Google Maps) ![APEX Plugin](https://cdn.rawgit.com/Dani3lSun/apex-github-badges/b7e95341/badges/apex-plugin-badge.svg)
+# Address-Picker
 
-> NO LONGER IN DEVELOPMENT - all features of this plugin have now been rolled into the **[JK64 Report Map](https://jeffreykemp.github.io/jk64-plugin-reportmap/)** - please use that one instead.
+Google map address picker and autocomplete item plugin used to easily select address.
 
-**A Region plugin for Oracle Application Express**
+**A Item plugin for Oracle Application Express**
 
-This allows you to add a Google Map region to any page, showing a heatmap based on a query you specify. 
+This allows you to select address from Google Map. This plugin will used to select address from map or seach address using autocomplete functionality. 
 
 ![plugin-heatmap-preview.png](https://raw.githubusercontent.com/jeffreykemp/jk64-plugin-heatmap/master/src/plugin-heatmap-preview.png)
 
 ## DEMO ##
 
-[https://apex.oracle.com/pls/apex/f?p=JK64_GEOHEATMAP&c=JK64](https://apex.oracle.com/pls/apex/f?p=JK64_GEOHEATMAP&c=JK64)
+[https://apps.zerointegration.com/demo/f?p=plugins:addresspicker](https://apps.zerointegration.com/demo/f?p=plugins:addresspicker)
 
 ## PRE-REQUISITES ##
 
-* [Oracle Application Express 5.0.2](https://apex.oracle.com)
 * You need a [Google Maps API Key](https://developers.google.com/maps/documentation/javascript/get-api-key#get-an-api-key)
 
-## INSTALLATION INSTRUCTIONS ##
+## INSTALLATION ##
 
-1. Download the [latest release](https://github.com/jeffreykemp/jk64-plugin-heatmap/releases/latest)
-2. Install the plugin to your application - **region_type_plugin_com_jk64_heatmap.sql**
+1. Download the [latest release](https://github.com/apex-plugins/Address-Picker/releases/latest)
+2. Install the plugin to your application - **item_type_plugin_com_zerointegration_addresspicker.sql**
 3. Supply your **Google API Key** (Component Settings)
-4. Add a region to the page, select type **GeoHeatmap [Plug-In]**
-5. For **SQL Source**, enter a query with 3 columns (see example below)
-6. Update the **Number of Rows** to a reasonable upper limit (default is 15, you probably want a much bigger number)
+4. Add a item to the page region and specify parameters in settings.
 
-**Sample query**
-
-```sql
-select lat, lng, weight from mydata
-```
-
-If you don't have any "weight" to go with the data points (e.g. population, earthquake magnitude, sales volume), just set the third column to `1`, e.g. `select lat, lng, 1 from mydata`.
-
-For more info, refer to the [WIKI](https://github.com/jeffreykemp/jk64-plugin-heatmap/wiki).
+For more info, refer to the [WIKI](https://github.com/apex-plugins/Address-Picker/wiki).
