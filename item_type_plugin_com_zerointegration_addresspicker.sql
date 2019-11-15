@@ -173,7 +173,7 @@ wwv_flow_api.create_plugin_attribute(
 ,p_depending_on_attribute_id=>wwv_flow_api.id(60010389435204723)
 ,p_depending_on_has_to_exist=>true
 ,p_depending_on_condition_type=>'EQUALS'
-,p_depending_on_expression=>'Y'
+,p_depending_on_expression=>'N'
 ,p_help_text=>'Specify Google Map width in pixel.'
 );
 wwv_flow_api.create_plugin_attribute(
