@@ -10,7 +10,7 @@ This allows you to select address from Google Map. This plugin will used to sele
 
 ## DEMO ##
 
-[https://apps.zerointegration.com/demo/f?p=plugins:addresspicker](https://apps.zerointegration.com/demo/f?p=plugins:addresspicker)
+[https://apps.zerointegration.com/demo/f?p=apexplugins:addresspicker](https://apps.zerointegration.com/demo/f?p=apexplugins:addresspicker)
 
 ## PRE-REQUISITES ##
 
