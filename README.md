@@ -4,7 +4,7 @@ Google map address picker and autocomplete for address item plugin used to easil
 
 **A Item plugin for Oracle Application Express**
 
-This allows you to select address from Google Map. This plugin will used to select address from map or seach address using autocomplete functionality. 
+This plugin allows you to select address or search address using autocomplete functionality from Google Map. 
 
 ![Preview.gif](https://raw.githubusercontent.com/apex-plugins/Address-Picker/master/Source/Preview.gif)
 
