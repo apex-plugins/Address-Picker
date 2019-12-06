@@ -1,8 +1,8 @@
 {
   "name" : "0integration Address Picker",
   "version" : "1.0",
-  "description" : "Google map address picker and autocomplete item plugin used to easily select address.",
-  "keywords" : ["map","address", "googlemap", "autocomplete", "addresspicker","location"],
+  "description" : "Google map address picker and autocomplete for address item plugin used to easily select address.",
+  "keywords" : ["map", "address", "googlemap", "autocomplete", "addresspicker", "location"],
   "homepage" : "https://github.com/apex-plugins/Address-Picker",
   "bugs" : {
     "url" : "https://github.com/apex-plugins/Address-Picker/issues",

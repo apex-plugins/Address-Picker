@@ -1,7 +1,7 @@
 /*
  * 0integration Address Picker
  * Plug-in Type: Item
- * Summary: Google map address picker and autocomplete plugin
+ * Summary: Google map address picker and autocomplete for address item plugin used to easily select address.
  *
  * ^^^ Contact information ^^^
  * Developed by 0integration
@@ -12,7 +12,7 @@
  * Licensed Under: GNU General Public License, version 3 (GPL-3.0) -
 http://www.opensource.org/licenses/gpl-3.0.html
  *
- * @author Kartik Patel - www.zerointegration.com
+ * @author Kartik Patel - kartik.patel@zerointegration.com
  */
  
  #pac-input-map {

@@ -1,6 +1,6 @@
 # Address-Picker
 
-Google map address picker and autocomplete item plugin used to easily select address.
+Google map address picker and autocomplete for address item plugin used to easily select address.
 
 **A Item plugin for Oracle Application Express**
 
