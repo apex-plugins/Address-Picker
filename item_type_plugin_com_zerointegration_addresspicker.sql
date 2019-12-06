@@ -6,25 +6,48 @@ whenever sqlerror exit sql.sqlcode rollback
 -- ORACLE Application Express (APEX) export file
 --
 -- You should run the script connected to SQL*Plus as the Oracle user
--- APEX_190100 or as the owner (parsing schema) of the application.
+-- APEX_190200 or as the owner (parsing schema) of the application.
 --
 -- NOTE: Calls to apex_application_install override the defaults below.
 --
 --------------------------------------------------------------------------------
 begin
 wwv_flow_api.import_begin (
- p_version_yyyy_mm_dd=>'2019.03.31'
-,p_release=>'19.1.0.00.15'
+ p_version_yyyy_mm_dd=>'2019.10.04'
+,p_release=>'19.2.0.00.18'
 ,p_default_workspace_id=>59964498029690491
-,p_default_application_id=>711
+,p_default_application_id=>109
+,p_default_id_offset=>0
 ,p_default_owner=>'ZI_DEMO'
 );
+end;
+/
+ 
+prompt APPLICATION 109 - APEX-PLUGINS
+--
+-- Application Export:
+--   Application:     109
+--   Name:            APEX-PLUGINS
+--   Date and Time:   17:45 Friday December 6, 2019
+--   Exported By:     KARTIK.PATEL@ZEROINTEGRATION.COM
+--   Flashback:       0
+--   Export Type:     Component Export
+--   Manifest
+--     PLUGIN: 69751342671396976
+--   Manifest End
+--   Version:         19.2.0.00.18
+--   Instance ID:     248208677495795
+--
+
+begin
+  -- replace components
+  wwv_flow_api.g_mode := 'REPLACE';
 end;
 /
 prompt --application/shared_components/plugins/item_type/com_zerointegration_addresspicker
 begin
 wwv_flow_api.create_plugin(
- p_id=>wwv_flow_api.id(63537924385760311)
+ p_id=>wwv_flow_api.id(69751342671396976)
 ,p_plugin_type=>'ITEM TYPE'
 ,p_name=>'COM.ZEROINTEGRATION.ADDRESSPICKER'
 ,p_display_name=>'0integration Address Picker'
@@ -70,7 +93,7 @@ wwv_flow_api.create_plugin(
 '    V_POSITION := P_ITEM.ATTRIBUTE_06;',
 '    V_C_LATITUDE := NVL(P_ITEM.ATTRIBUTE_07,0);',
 '    V_C_LONGITUDE := NVL(P_ITEM.ATTRIBUTE_08,0);',
-'    V_DYNAMIC_WIDTH := NVL(P_ITEM.ATTRIBUTE_08,0);',
+'    V_DYNAMIC_WIDTH := NVL(P_ITEM.ATTRIBUTE_09,0);',
 '    ',
 '    APEX_JAVASCRIPT.ADD_LIBRARY(P_NAME => ''//maps.googleapis.com/maps/api/js?region=''||V_COUNTRY||''&libraries=places&key='' || V_API_KEY,',
 '                                P_DIRECTORY => NULL,P_VERSION => NULL,P_SKIP_EXTENSION => TRUE);',
@@ -116,11 +139,12 @@ wwv_flow_api.create_plugin(
 ,p_substitute_attributes=>true
 ,p_subscribe_plugin_settings=>true
 ,p_version_identifier=>'1.0'
-,p_files_version=>6
+,p_about_url=>'https://github.com/apex-plugins/Address-Picker'
+,p_files_version=>8
 );
 wwv_flow_api.create_plugin_attribute(
- p_id=>wwv_flow_api.id(63538515857164718)
-,p_plugin_id=>wwv_flow_api.id(63537924385760311)
+ p_id=>wwv_flow_api.id(69751934142801383)
+,p_plugin_id=>wwv_flow_api.id(69751342671396976)
 ,p_attribute_scope=>'APPLICATION'
 ,p_attribute_sequence=>1
 ,p_display_sequence=>10
@@ -134,8 +158,8 @@ wwv_flow_api.create_plugin_attribute(
 'https://developers.google.com/maps/documentation/javascript/get-api-key'))
 );
 wwv_flow_api.create_plugin_attribute(
- p_id=>wwv_flow_api.id(67707208648904881)
-,p_plugin_id=>wwv_flow_api.id(63537924385760311)
+ p_id=>wwv_flow_api.id(73920626934541546)
+,p_plugin_id=>wwv_flow_api.id(69751342671396976)
 ,p_attribute_scope=>'COMPONENT'
 ,p_attribute_sequence=>1
 ,p_display_sequence=>10
@@ -147,8 +171,8 @@ wwv_flow_api.create_plugin_attribute(
 ,p_help_text=>'Specify country code in lowercase.'
 );
 wwv_flow_api.create_plugin_attribute(
- p_id=>wwv_flow_api.id(67707697113907389)
-,p_plugin_id=>wwv_flow_api.id(63537924385760311)
+ p_id=>wwv_flow_api.id(73921115399544054)
+,p_plugin_id=>wwv_flow_api.id(69751342671396976)
 ,p_attribute_scope=>'COMPONENT'
 ,p_attribute_sequence=>2
 ,p_display_sequence=>20
@@ -160,8 +184,8 @@ wwv_flow_api.create_plugin_attribute(
 ,p_help_text=>'Display google map to select location.'
 );
 wwv_flow_api.create_plugin_attribute(
- p_id=>wwv_flow_api.id(67708132049912793)
-,p_plugin_id=>wwv_flow_api.id(63537924385760311)
+ p_id=>wwv_flow_api.id(73921550335549458)
+,p_plugin_id=>wwv_flow_api.id(69751342671396976)
 ,p_attribute_scope=>'COMPONENT'
 ,p_attribute_sequence=>3
 ,p_display_sequence=>40
@@ -170,15 +194,15 @@ wwv_flow_api.create_plugin_attribute(
 ,p_is_required=>true
 ,p_unit=>'px'
 ,p_is_translatable=>false
-,p_depending_on_attribute_id=>wwv_flow_api.id(60010389435204723)
+,p_depending_on_attribute_id=>wwv_flow_api.id(66223807720841388)
 ,p_depending_on_has_to_exist=>true
 ,p_depending_on_condition_type=>'EQUALS'
 ,p_depending_on_expression=>'N'
 ,p_help_text=>'Specify Google Map width in pixel.'
 );
 wwv_flow_api.create_plugin_attribute(
- p_id=>wwv_flow_api.id(67708681398915848)
-,p_plugin_id=>wwv_flow_api.id(63537924385760311)
+ p_id=>wwv_flow_api.id(73922099684552513)
+,p_plugin_id=>wwv_flow_api.id(69751342671396976)
 ,p_attribute_scope=>'COMPONENT'
 ,p_attribute_sequence=>4
 ,p_display_sequence=>50
@@ -187,15 +211,15 @@ wwv_flow_api.create_plugin_attribute(
 ,p_is_required=>true
 ,p_unit=>'px'
 ,p_is_translatable=>false
-,p_depending_on_attribute_id=>wwv_flow_api.id(67707697113907389)
+,p_depending_on_attribute_id=>wwv_flow_api.id(73921115399544054)
 ,p_depending_on_has_to_exist=>true
 ,p_depending_on_condition_type=>'EQUALS'
 ,p_depending_on_expression=>'Y'
 ,p_help_text=>'Specify Google Map height in pixel.'
 );
 wwv_flow_api.create_plugin_attribute(
- p_id=>wwv_flow_api.id(67709169868918883)
-,p_plugin_id=>wwv_flow_api.id(63537924385760311)
+ p_id=>wwv_flow_api.id(73922588154555548)
+,p_plugin_id=>wwv_flow_api.id(69751342671396976)
 ,p_attribute_scope=>'COMPONENT'
 ,p_attribute_sequence=>5
 ,p_display_sequence=>60
@@ -204,7 +228,7 @@ wwv_flow_api.create_plugin_attribute(
 ,p_is_required=>true
 ,p_default_value=>'10'
 ,p_is_translatable=>false
-,p_depending_on_attribute_id=>wwv_flow_api.id(67707697113907389)
+,p_depending_on_attribute_id=>wwv_flow_api.id(73921115399544054)
 ,p_depending_on_has_to_exist=>true
 ,p_depending_on_condition_type=>'EQUALS'
 ,p_depending_on_expression=>'Y'
@@ -212,155 +236,155 @@ wwv_flow_api.create_plugin_attribute(
 ,p_help_text=>'Select Google map zoom level.'
 );
 wwv_flow_api.create_plugin_attr_value(
- p_id=>wwv_flow_api.id(67717431782089406)
-,p_plugin_attribute_id=>wwv_flow_api.id(67709169868918883)
+ p_id=>wwv_flow_api.id(73930850067726071)
+,p_plugin_attribute_id=>wwv_flow_api.id(73922588154555548)
 ,p_display_sequence=>10
 ,p_display_value=>'0'
 ,p_return_value=>'0'
 );
 wwv_flow_api.create_plugin_attr_value(
- p_id=>wwv_flow_api.id(67717846652090622)
-,p_plugin_attribute_id=>wwv_flow_api.id(67709169868918883)
+ p_id=>wwv_flow_api.id(73931264937727287)
+,p_plugin_attribute_id=>wwv_flow_api.id(73922588154555548)
 ,p_display_sequence=>20
 ,p_display_value=>'1'
 ,p_return_value=>'1'
 );
 wwv_flow_api.create_plugin_attr_value(
- p_id=>wwv_flow_api.id(67718300966091516)
-,p_plugin_attribute_id=>wwv_flow_api.id(67709169868918883)
+ p_id=>wwv_flow_api.id(73931719251728181)
+,p_plugin_attribute_id=>wwv_flow_api.id(73922588154555548)
 ,p_display_sequence=>30
 ,p_display_value=>'2'
 ,p_return_value=>'2'
 );
 wwv_flow_api.create_plugin_attr_value(
- p_id=>wwv_flow_api.id(67718654173092243)
-,p_plugin_attribute_id=>wwv_flow_api.id(67709169868918883)
+ p_id=>wwv_flow_api.id(73932072458728908)
+,p_plugin_attribute_id=>wwv_flow_api.id(73922588154555548)
 ,p_display_sequence=>40
 ,p_display_value=>'3'
 ,p_return_value=>'3'
 );
 wwv_flow_api.create_plugin_attr_value(
- p_id=>wwv_flow_api.id(67719053129092993)
-,p_plugin_attribute_id=>wwv_flow_api.id(67709169868918883)
+ p_id=>wwv_flow_api.id(73932471414729658)
+,p_plugin_attribute_id=>wwv_flow_api.id(73922588154555548)
 ,p_display_sequence=>50
 ,p_display_value=>'4'
 ,p_return_value=>'4'
 );
 wwv_flow_api.create_plugin_attr_value(
- p_id=>wwv_flow_api.id(67719445310093538)
-,p_plugin_attribute_id=>wwv_flow_api.id(67709169868918883)
+ p_id=>wwv_flow_api.id(73932863595730203)
+,p_plugin_attribute_id=>wwv_flow_api.id(73922588154555548)
 ,p_display_sequence=>60
 ,p_display_value=>'5'
 ,p_return_value=>'5'
 );
 wwv_flow_api.create_plugin_attr_value(
- p_id=>wwv_flow_api.id(67719917720094920)
-,p_plugin_attribute_id=>wwv_flow_api.id(67709169868918883)
+ p_id=>wwv_flow_api.id(73933336005731585)
+,p_plugin_attribute_id=>wwv_flow_api.id(73922588154555548)
 ,p_display_sequence=>70
 ,p_display_value=>'6'
 ,p_return_value=>'6'
 );
 wwv_flow_api.create_plugin_attr_value(
- p_id=>wwv_flow_api.id(67720295614097482)
-,p_plugin_attribute_id=>wwv_flow_api.id(67709169868918883)
+ p_id=>wwv_flow_api.id(73933713899734147)
+,p_plugin_attribute_id=>wwv_flow_api.id(73922588154555548)
 ,p_display_sequence=>80
 ,p_display_value=>'7'
 ,p_return_value=>'7'
 );
 wwv_flow_api.create_plugin_attr_value(
- p_id=>wwv_flow_api.id(67720658223098232)
-,p_plugin_attribute_id=>wwv_flow_api.id(67709169868918883)
+ p_id=>wwv_flow_api.id(73934076508734897)
+,p_plugin_attribute_id=>wwv_flow_api.id(73922588154555548)
 ,p_display_sequence=>90
 ,p_display_value=>'8'
 ,p_return_value=>'8'
 );
 wwv_flow_api.create_plugin_attr_value(
- p_id=>wwv_flow_api.id(67721083248098874)
-,p_plugin_attribute_id=>wwv_flow_api.id(67709169868918883)
+ p_id=>wwv_flow_api.id(73934501533735539)
+,p_plugin_attribute_id=>wwv_flow_api.id(73922588154555548)
 ,p_display_sequence=>100
 ,p_display_value=>'9'
 ,p_return_value=>'9'
 );
 wwv_flow_api.create_plugin_attr_value(
- p_id=>wwv_flow_api.id(67709724516920118)
-,p_plugin_attribute_id=>wwv_flow_api.id(67709169868918883)
+ p_id=>wwv_flow_api.id(73923142802556783)
+,p_plugin_attribute_id=>wwv_flow_api.id(73922588154555548)
 ,p_display_sequence=>110
 ,p_display_value=>'10'
 ,p_return_value=>'10'
 );
 wwv_flow_api.create_plugin_attr_value(
- p_id=>wwv_flow_api.id(67722600302104934)
-,p_plugin_attribute_id=>wwv_flow_api.id(67709169868918883)
+ p_id=>wwv_flow_api.id(73936018587741599)
+,p_plugin_attribute_id=>wwv_flow_api.id(73922588154555548)
 ,p_display_sequence=>120
 ,p_display_value=>'11'
 ,p_return_value=>'11'
 );
 wwv_flow_api.create_plugin_attr_value(
- p_id=>wwv_flow_api.id(67723002707105732)
-,p_plugin_attribute_id=>wwv_flow_api.id(67709169868918883)
+ p_id=>wwv_flow_api.id(73936420992742397)
+,p_plugin_attribute_id=>wwv_flow_api.id(73922588154555548)
 ,p_display_sequence=>130
 ,p_display_value=>'12'
 ,p_return_value=>'12'
 );
 wwv_flow_api.create_plugin_attr_value(
- p_id=>wwv_flow_api.id(67723344419106348)
-,p_plugin_attribute_id=>wwv_flow_api.id(67709169868918883)
+ p_id=>wwv_flow_api.id(73936762704743013)
+,p_plugin_attribute_id=>wwv_flow_api.id(73922588154555548)
 ,p_display_sequence=>140
 ,p_display_value=>'13'
 ,p_return_value=>'13'
 );
 wwv_flow_api.create_plugin_attr_value(
- p_id=>wwv_flow_api.id(67723804681107194)
-,p_plugin_attribute_id=>wwv_flow_api.id(67709169868918883)
+ p_id=>wwv_flow_api.id(73937222966743859)
+,p_plugin_attribute_id=>wwv_flow_api.id(73922588154555548)
 ,p_display_sequence=>150
 ,p_display_value=>'14'
 ,p_return_value=>'14'
 );
 wwv_flow_api.create_plugin_attr_value(
- p_id=>wwv_flow_api.id(67724211505108153)
-,p_plugin_attribute_id=>wwv_flow_api.id(67709169868918883)
+ p_id=>wwv_flow_api.id(73937629790744818)
+,p_plugin_attribute_id=>wwv_flow_api.id(73922588154555548)
 ,p_display_sequence=>160
 ,p_display_value=>'15'
 ,p_return_value=>'15'
 );
 wwv_flow_api.create_plugin_attr_value(
- p_id=>wwv_flow_api.id(67724588127108766)
-,p_plugin_attribute_id=>wwv_flow_api.id(67709169868918883)
+ p_id=>wwv_flow_api.id(73938006412745431)
+,p_plugin_attribute_id=>wwv_flow_api.id(73922588154555548)
 ,p_display_sequence=>170
 ,p_display_value=>'16'
 ,p_return_value=>'16'
 );
 wwv_flow_api.create_plugin_attr_value(
- p_id=>wwv_flow_api.id(67724965402110541)
-,p_plugin_attribute_id=>wwv_flow_api.id(67709169868918883)
+ p_id=>wwv_flow_api.id(73938383687747206)
+,p_plugin_attribute_id=>wwv_flow_api.id(73922588154555548)
 ,p_display_sequence=>180
 ,p_display_value=>'17'
 ,p_return_value=>'17'
 );
 wwv_flow_api.create_plugin_attr_value(
- p_id=>wwv_flow_api.id(67725382828111097)
-,p_plugin_attribute_id=>wwv_flow_api.id(67709169868918883)
+ p_id=>wwv_flow_api.id(73938801113747762)
+,p_plugin_attribute_id=>wwv_flow_api.id(73922588154555548)
 ,p_display_sequence=>190
 ,p_display_value=>'18'
 ,p_return_value=>'18'
 );
 wwv_flow_api.create_plugin_attr_value(
- p_id=>wwv_flow_api.id(67725774426113054)
-,p_plugin_attribute_id=>wwv_flow_api.id(67709169868918883)
+ p_id=>wwv_flow_api.id(73939192711749719)
+,p_plugin_attribute_id=>wwv_flow_api.id(73922588154555548)
 ,p_display_sequence=>200
 ,p_display_value=>'19'
 ,p_return_value=>'19'
 );
 wwv_flow_api.create_plugin_attr_value(
- p_id=>wwv_flow_api.id(67726168546115117)
-,p_plugin_attribute_id=>wwv_flow_api.id(67709169868918883)
+ p_id=>wwv_flow_api.id(73939586831751782)
+,p_plugin_attribute_id=>wwv_flow_api.id(73922588154555548)
 ,p_display_sequence=>210
 ,p_display_value=>'20'
 ,p_return_value=>'20'
 );
 wwv_flow_api.create_plugin_attribute(
- p_id=>wwv_flow_api.id(67710144098927049)
-,p_plugin_id=>wwv_flow_api.id(63537924385760311)
+ p_id=>wwv_flow_api.id(73923562384563714)
+,p_plugin_id=>wwv_flow_api.id(69751342671396976)
 ,p_attribute_scope=>'COMPONENT'
 ,p_attribute_sequence=>6
 ,p_display_sequence=>70
@@ -369,15 +393,15 @@ wwv_flow_api.create_plugin_attribute(
 ,p_is_required=>false
 ,p_default_value=>'N'
 ,p_is_translatable=>false
-,p_depending_on_attribute_id=>wwv_flow_api.id(67707697113907389)
+,p_depending_on_attribute_id=>wwv_flow_api.id(73921115399544054)
 ,p_depending_on_has_to_exist=>true
 ,p_depending_on_condition_type=>'EQUALS'
 ,p_depending_on_expression=>'Y'
 ,p_help_text=>'Determine the user''s location.'
 );
 wwv_flow_api.create_plugin_attribute(
- p_id=>wwv_flow_api.id(67710709107934864)
-,p_plugin_id=>wwv_flow_api.id(63537924385760311)
+ p_id=>wwv_flow_api.id(73924127393571529)
+,p_plugin_id=>wwv_flow_api.id(69751342671396976)
 ,p_attribute_scope=>'COMPONENT'
 ,p_attribute_sequence=>7
 ,p_display_sequence=>80
@@ -385,15 +409,15 @@ wwv_flow_api.create_plugin_attribute(
 ,p_attribute_type=>'NUMBER'
 ,p_is_required=>true
 ,p_is_translatable=>false
-,p_depending_on_attribute_id=>wwv_flow_api.id(67710144098927049)
+,p_depending_on_attribute_id=>wwv_flow_api.id(73923562384563714)
 ,p_depending_on_has_to_exist=>true
 ,p_depending_on_condition_type=>'EQUALS'
 ,p_depending_on_expression=>'N'
 ,p_help_text=>'Latitude value for center of map.'
 );
 wwv_flow_api.create_plugin_attribute(
- p_id=>wwv_flow_api.id(67711175859937833)
-,p_plugin_id=>wwv_flow_api.id(63537924385760311)
+ p_id=>wwv_flow_api.id(73924594145574498)
+,p_plugin_id=>wwv_flow_api.id(69751342671396976)
 ,p_attribute_scope=>'COMPONENT'
 ,p_attribute_sequence=>8
 ,p_display_sequence=>90
@@ -401,15 +425,15 @@ wwv_flow_api.create_plugin_attribute(
 ,p_attribute_type=>'NUMBER'
 ,p_is_required=>true
 ,p_is_translatable=>false
-,p_depending_on_attribute_id=>wwv_flow_api.id(67710144098927049)
+,p_depending_on_attribute_id=>wwv_flow_api.id(73923562384563714)
 ,p_depending_on_has_to_exist=>true
 ,p_depending_on_condition_type=>'EQUALS'
 ,p_depending_on_expression=>'N'
 ,p_help_text=>'Longitude value for center of map.'
 );
 wwv_flow_api.create_plugin_attribute(
- p_id=>wwv_flow_api.id(60010389435204723)
-,p_plugin_id=>wwv_flow_api.id(63537924385760311)
+ p_id=>wwv_flow_api.id(66223807720841388)
+,p_plugin_id=>wwv_flow_api.id(69751342671396976)
 ,p_attribute_scope=>'COMPONENT'
 ,p_attribute_sequence=>9
 ,p_display_sequence=>30
@@ -418,7 +442,7 @@ wwv_flow_api.create_plugin_attribute(
 ,p_is_required=>false
 ,p_default_value=>'Y'
 ,p_is_translatable=>false
-,p_depending_on_attribute_id=>wwv_flow_api.id(67707697113907389)
+,p_depending_on_attribute_id=>wwv_flow_api.id(73921115399544054)
 ,p_depending_on_has_to_exist=>true
 ,p_depending_on_condition_type=>'EQUALS'
 ,p_depending_on_expression=>'Y'
@@ -444,8 +468,8 @@ end;
 /
 begin
 wwv_flow_api.create_plugin_file(
- p_id=>wwv_flow_api.id(119916642046793391)
-,p_plugin_id=>wwv_flow_api.id(63537924385760311)
+ p_id=>wwv_flow_api.id(6218212727742165)
+,p_plugin_id=>wwv_flow_api.id(69751342671396976)
 ,p_file_name=>'com.zerointegration.address.css'
 ,p_mime_type=>'text/css'
 ,p_file_charset=>'utf-8'
@@ -506,17 +530,18 @@ end;
 /
 begin
 wwv_flow_api.create_plugin_file(
- p_id=>wwv_flow_api.id(119916965773793393)
-,p_plugin_id=>wwv_flow_api.id(63537924385760311)
+ p_id=>wwv_flow_api.id(6218507687742166)
+,p_plugin_id=>wwv_flow_api.id(69751342671396976)
 ,p_file_name=>'com.zerointegration.address.js'
-,p_mime_type=>'application/javascript'
+,p_mime_type=>'application/x-javascript'
 ,p_file_charset=>'utf-8'
 ,p_file_content=>wwv_flow_api.varchar2_to_blob(wwv_flow_api.g_varchar2_table)
 );
 end;
 /
+prompt --application/end_environment
 begin
-wwv_flow_api.import_end(p_auto_install_sup_obj => nvl(wwv_flow_application_install.get_auto_install_sup_obj, false), p_is_component_import => true);
+wwv_flow_api.import_end(p_auto_install_sup_obj => nvl(wwv_flow_application_install.get_auto_install_sup_obj, false));
 commit;
 end;
 /

@@ -23,11 +23,11 @@
   "oracle" : {
     "versions" : ["12.1.0.1"],
     "apex" : {
-      "versions" : ["19.1"],
+      "versions" : ["19.1","19.2"],
       "plugin" : {
         "internalName" : "COM.ZEROINTEGRATION.ADDRESSPICKER",
         "type" : "item",
-        "demo" : "https://apps.zerointegration.com/demo/f?p=plugins:addresspicker",
+        "demo" : "https://apps.zerointegration.com/demo/f?p=apexplugins:addresspicker",
         "previewImage" : "https://raw.githubusercontent.com/apex-plugins/Address-Picker/master/Source/Preview.gif"
       }
     }
