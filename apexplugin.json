@@ -1,44 +1,44 @@
 {
-  "name" : "0integration Address Picker",
-  "version" : "1.0",
-  "description" : "Google map address picker and autocomplete for address item plugin used to easily select address.",
-  "keywords" : ["map", "address", "googlemap", "autocomplete", "addresspicker", "location"],
-  "homepage" : "https://github.com/apex-plugins/Address-Picker",
-  "bugs" : {
-    "url" : "https://github.com/apex-plugins/Address-Picker/issues",
-    "email" : "kartik.patel@zerointegration.com"
-  },
-  "license" : "MIT",
-  "author" : {
-    "name" : "Kartik Patel",
-    "email" : "kartik.patel@zerointegration.com",
-    "url" : "https://zerointegration.com/"
-    "twitter" : "kp9985"
-    "donationUrl" : ""
-  },
-  "repository" : {
-    "type" : "git",
-    "url" : "https://github.com/apex-plugins/Address-Picker.git"
-  },
-  "oracle" : {
-    "versions" : [
-      "11.2.0.1",
-      "12.1.0.1",
-      "12.2.0.1"
-    ],
-    "apex" : {
-      "versions" : [
-        "18.1.0",
-        "18.2.0",
-        "19.1.0",
-        "19.2.0"
-      ],
-      "plugin" : {
-        "internalName" : "COM.ZEROINTEGRATION.ADDRESSPICKER",
-        "type" : "item",
-        "demo" : "https://apps.zerointegration.com/demo/f?p=apexplugins:addresspicker",
-        "previewImage" : "https://raw.githubusercontent.com/apex-plugins/Address-Picker/master/Source/Preview.gif"
-      }
-    }
-  }
+	"name": "0integration Address Picker",
+	"version": "1.0",
+	"description": "Google map address picker and autocomplete for address item plugin used to easily select address.",
+	"keywords": ["map", "address", "googlemap", "autocomplete", "addresspicker", "location"],
+	"homepage": "https://github.com/apex-plugins/Address-Picker",
+	"bugs": {
+		"url": "https://github.com/apex-plugins/Address-Picker/issues",
+		"email": "kartik.patel@zerointegration.com"
+	},
+	"license": "MIT",
+	"author": {
+		"name": "Kartik Patel",
+		"email": "kartik.patel@zerointegration.com",
+		"url": "https://zerointegration.com/",
+		"twitter": "kp9985",
+		"donationUrl": ""
+	},
+	"repository": {
+		"type": "git",
+		"url": "https://github.com/apex-plugins/Address-Picker.git"
+	},
+	"oracle": {
+		"versions": [
+			"11.2.0.1",
+			"12.1.0.1",
+			"12.2.0.1"
+		],
+		"apex": {
+			"versions": [
+				"18.1.0",
+				"18.2.0",
+				"19.1.0",
+				"19.2.0"
+			],
+			"plugin": {
+				"internalName": "COM.ZEROINTEGRATION.ADDRESSPICKER",
+				"type": "item",
+				"demo": "https://apps.zerointegration.com/demo/f?p=apexplugins:addresspicker",
+				"previewImage": "https://raw.githubusercontent.com/apex-plugins/Address-Picker/master/Source/Preview.gif"
+			}
+		}
+	}
 }
