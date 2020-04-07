@@ -21,9 +21,18 @@
     "url" : "https://github.com/apex-plugins/Address-Picker.git"
   },
   "oracle" : {
-    "versions" : ["12.1.0.1"],
+    "versions" : [
+      "11.2.0.1",
+      "12.1.0.1",
+      "12.2.0.1"
+    ],
     "apex" : {
-      "versions" : ["19.1","19.2"],
+      "versions" : [
+        "18.1.0",
+        "18.2.0",
+        "19.1.0",
+        "19.2.0"
+      ],
       "plugin" : {
         "internalName" : "COM.ZEROINTEGRATION.ADDRESSPICKER",
         "type" : "item",
