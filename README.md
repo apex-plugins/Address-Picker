@@ -15,6 +15,7 @@ This plugin allows you to select address or search address using autocomplete fu
 ## PRE-REQUISITES ##
 
 * You need a [Google Maps API Key](https://developers.google.com/maps/documentation/javascript/get-api-key#get-an-api-key)
+* Make sure no template selected for item appearance 
 
 ## INSTALLATION ##
 
