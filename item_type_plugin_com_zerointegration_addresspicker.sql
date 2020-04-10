@@ -28,7 +28,7 @@ prompt APPLICATION 109 - APEX-PLUGINS
 -- Application Export:
 --   Application:     109
 --   Name:            APEX-PLUGINS
---   Date and Time:   08:58 Friday April 10, 2020
+--   Date and Time:   09:40 Friday April 10, 2020
 --   Exported By:     KARTIK.PATEL@ZEROINTEGRATION.COM
 --   Flashback:       0
 --   Export Type:     Component Export
@@ -110,7 +110,7 @@ wwv_flow_api.create_plugin(
 '      ',
 '      sys.htp.p(''<input id="pac-input-map" class="controls" type="text" placeholder="''||P_ITEM.PLACEHOLDER||''">'');',
 '      sys.htp.p(''<div id="map-canvas" style="width:''',
-'                       || CASE WHEN V_DYNAMIC_WIDTH=''Y'' THEN ''100%;'' ELSE V_MAP_WIDTH|| ''px;'' END ||'' height:''',
+'                       || CASE WHEN V_DYNAMIC_WIDTH=''Y'' THEN ''100%;'' ELSE V_MAP_WIDTH|| ''px; width: -webkit-fill-available;'' END ||'' height:''',
 '                       || V_MAP_HEIGHT',
 '                       || ''px;"> </div>'');',
 '    ',

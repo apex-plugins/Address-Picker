@@ -71,7 +71,7 @@ PROCEDURE RENDER_ADDRESSPICKER (
       
       sys.htp.p('<input id="pac-input-map" class="controls" type="text" placeholder="'||P_ITEM.PLACEHOLDER||'">');
       sys.htp.p('<div id="map-canvas" style="width:'
-                       || CASE WHEN V_DYNAMIC_WIDTH='Y' THEN '100%;' ELSE V_MAP_WIDTH|| 'px;' END ||' height:'
+                       || CASE WHEN V_DYNAMIC_WIDTH='Y' THEN '100%;' ELSE V_MAP_WIDTH|| 'px; width: -webkit-fill-available;' END ||' height:'
                        || V_MAP_HEIGHT
                        || 'px;"> </div>');
     
